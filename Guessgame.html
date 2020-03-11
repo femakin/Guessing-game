@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUESSING GAME</title>
+
+<style>
+
+    .dec{
+    
+        max-width: 500px;
+  margin: auto;
+    }
+/*
+.dec{
+
+    padding-top:  70px;
+    margin-left: 500px;
+}  */
+
+body{
+    background-color: rgba(62, 233, 219, 0.8);
+    
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    background-color: rgba(62, 233, 219, 0.8);
+    color: black
+}
+
+@media (max-width: 768px){
+    .body{
+       width: 100%;
+    }
+}
+
+</style>
+
+
+
+
+
+
+
+</head>
+<body   class="bd">
+
+<div   class="dec"     >
+
+    <h1>GUESSING GAME </h1>
+    <h4>Hey! You think you are smart, then come around and prove yourself.        </h4>
+    <p>We have chosen a probable digit between 1 - 50.
+ See if  you can guess it.
+    </p>
+    <div class = "form">
+    <label for="guessField">Enter a guess:</label>
+    <p><input type="text" id = "prediction" class="prediction" placeholder="prediction"></p>
+   <p> <input type="submit" value="submit" class ="submit"   id="submit"></p>
+</div>
+
+</div>
+
+
+
+
+<div>
+    <footer>
+        <p>© 2020 FEMITOSIN</p>
+    </footer>
+</div>
+
+
+<script>
+
+
+// random number
+const number = Math.floor(Math.random() * 50 + 1);
+
+// start counting number of guesses
+let time = 1;
+let max =5;
+document.getElementById('submit').onclick = function(){
+
+    //user's prediction number
+var predict = document.getElementById("prediction").value;
+
+if(predict == number)
+{
+    alert ('BRILLIANT!!! YOU MADE IT RIGHT IN ' +time+ ' PREDICT(S) ');
+}
+else if(predict > number)  // if predicted number is more than actuual number
+{
+    time++;   // counting continues 
+    alert('OOPS!! PICK A LESSER DIGIT');
+}
+else{
+    time++;     // counting continues
+    alert('OOPS!! PICK A BIGGER DIGIT');
+}
+
+if(time > max){
+    time++;
+    alert(" OOPS!!  YOU HAVE EXCEEDED YOUR LIMIT! PLEASE, PRESS F5 TO TRY AGAIN." );
+}
+
+}
+
+
+
+
+
+</script>
+    
+
+
+
+
+
+
+
+</body>
+</html>
